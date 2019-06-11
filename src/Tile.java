@@ -31,20 +31,25 @@ public class Tile {
     public void draw(Graphics2D g) {
         AffineTransform af = g.getTransform();
 
-        g.translate(col * (int)(MainApp.tileSize.x + MainApp.gridGap.x), row * (int)(MainApp.tileSize.y + MainApp.gridGap.y));
+        g.translate(col * (int) (MainApp.tileSize.x + MainApp.gridGap.x), row * (int) (MainApp.tileSize.y + MainApp.gridGap.y));
 
         // Inside
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, (int)MainApp.tileSize.x, (int)MainApp.tileSize.y);
+        if (type == "wall") {
+            g.setColor(Color.GRAY);
+        } else {
+            g.setColor(Color.WHITE);
+        }
+
+        g.fillRect(0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y);
 
         // Outline
         g.setColor(Color.BLACK);
-        g.drawRect(0, 0, (int)MainApp.tileSize.x, (int)MainApp.tileSize.y);
+        g.drawRect(0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y);
 
         if (hasAnt) {
             g.setColor(Color.RED);
-            g.translate((int)MainApp.tileSize.x / 2, (int)MainApp.tileSize.y / 2);
-            g.fillRect((int)-MainApp.tileSize.x / 8, (int)-MainApp.tileSize.y / 8, (int)MainApp.tileSize.x / 4, (int)MainApp.tileSize.y / 4);
+            g.translate((int) MainApp.tileSize.x / 2, (int) MainApp.tileSize.y / 2);
+            g.fillRect((int) -MainApp.tileSize.x / 8, (int) -MainApp.tileSize.y / 8, (int) MainApp.tileSize.x / 4, (int) MainApp.tileSize.y / 4);
         }
 
         g.setTransform(af);
@@ -63,5 +68,13 @@ public class Tile {
 
     public void setAnt(boolean a) {
         hasAnt = a;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String t) {
+        type = t;
     }
 }

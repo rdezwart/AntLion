@@ -20,6 +20,7 @@ public class MainApp extends JFrame {
     public static Dimension windowSize = new Dimension((int) (panelSize.getWidth() + 100),
             (int) (panelSize.getHeight() + 100));
 
+    // --Constructor-- //
     public MainApp(String title) {
         super(title);
 
@@ -50,7 +51,7 @@ public class MainApp extends JFrame {
 
     public static void main(String[] args) {
         new Util();
-        new MainApp("AntLion v1 - Team OOF");
+        new MainApp("AntLion v1.0 - Team OOF");
     }
 
 }

@@ -87,6 +87,8 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
+        tileList.get(20).setType("wall");
+
         // rdz.antlion.Ant
         a = new Ant();
 
@@ -126,17 +128,63 @@ public class GamePanel extends JPanel implements ActionListener {
 
     // --Methods-- //
     private void moveAnt(String dir) {
-        if (dir == "up") {
-            a.setRow(a.getRow() - 1);
-        } else if (dir == "down") {
-            a.setRow(a.getRow() + 1);
-        } else if (dir == "right") {
-            a.setCol(a.getCol() + 1);
-        } else if (dir == "left") {
-            a.setCol(a.getCol() - 1);
-        } else {
-            System.out.println("Not a valid direction.");
+        switch (dir) {
+            case "up": {
+                if (checkMoves()[0]) {
+                    a.setRow(a.getRow() - 1);
+                }
+                break;
+            }
+
+            case "right": {
+                if (checkMoves()[1]) {
+                    a.setCol(a.getCol() + 1);
+                }
+                break;
+            }
+
+            case "down": {
+                if (checkMoves()[2]) {
+                    a.setRow(a.getRow() + 1);
+                }
+                break;
+            }
+
+            case "left": {
+                if (checkMoves()[3]) {
+                    a.setCol(a.getCol() - 1);
+                }
+                break;
+            }
+
+            default: {
+                System.out.println("Not a valid direction.");
+            }
         }
+    }
+
+    private boolean[] checkMoves() {
+        // up, right, down, left
+        boolean[] canMove = {false, false, false, false};
+
+        // Up
+        if (a.getRow() != 0 && tileGrid[a.getCol()][a.getRow() - 1].getType() != "wall") {
+            canMove[0] = true;
+        }
+        // Right
+        if (a.getCol() != MainApp.gridSize.x && tileGrid[a.getCol() + 1][a.getRow()].getType() != "wall") {
+            canMove[1] = true;
+        }
+        // Down
+        if (a.getRow() != MainApp.gridSize.y && tileGrid[a.getCol()][a.getRow() + 1].getType() != "wall") {
+            canMove[2] = true;
+        }
+        // Left
+        if (a.getCol() != 0 && tileGrid[a.getCol() - 1][a.getRow()].getType() != "wall") {
+            canMove[3] = true;
+        }
+
+        return canMove;
     }
 
     public void checkAnt() {
