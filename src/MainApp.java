@@ -13,7 +13,7 @@ public class MainApp extends JFrame {
     // --Static Fields-- //
     public static PVector gridSize = new PVector(32, 16);
     public static PVector tileSize = new PVector(30, 30);
-    public static PVector gridGap = new PVector(10, 10);
+    public static PVector gridGap = new PVector(5, 5);
     public static Dimension panelSize = new Dimension(
             (int) ((tileSize.x * gridSize.x) + (gridGap.x * (gridSize.x + 1))),
             (int) ((tileSize.y * gridSize.y) + (gridGap.y * (gridSize.y + 1))));

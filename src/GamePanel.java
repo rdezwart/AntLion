@@ -87,7 +87,9 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
-        tileList.get(20).setType("wall");
+        for (int c = 4; c < 9; c++) {
+            tileGrid[c][5].setType("wall");
+        }
 
         // rdz.antlion.Ant
         a = new Ant();
@@ -172,11 +174,11 @@ public class GamePanel extends JPanel implements ActionListener {
             canMove[0] = true;
         }
         // Right
-        if (a.getCol() != MainApp.gridSize.x && tileGrid[a.getCol() + 1][a.getRow()].getType() != "wall") {
+        if (a.getCol() != MainApp.gridSize.x-1 && tileGrid[a.getCol() + 1][a.getRow()].getType() != "wall") {
             canMove[1] = true;
         }
         // Down
-        if (a.getRow() != MainApp.gridSize.y && tileGrid[a.getCol()][a.getRow() + 1].getType() != "wall") {
+        if (a.getRow() != MainApp.gridSize.y-1 && tileGrid[a.getCol()][a.getRow() + 1].getType() != "wall") {
             canMove[2] = true;
         }
         // Left
