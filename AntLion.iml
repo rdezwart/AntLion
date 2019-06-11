@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../../../../Downloads/processing-3.5.3-windows64/processing-3.5.3/core/library/core.jar!/" />
+          <root url="jar://$MODULE_DIR$/external/core.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

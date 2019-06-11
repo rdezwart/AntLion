@@ -1,3 +1,5 @@
+package rdz.antlion;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -87,7 +89,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
-        // rdz.antlion.Ant
+        // rdz.antlion.rdz.antlion.Ant
         a = new Ant();
 
         // Event listeners

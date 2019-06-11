@@ -1,3 +1,5 @@
+package rdz.antlion;
+
 import java.awt.Color;
 
 public class Util {
