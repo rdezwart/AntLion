@@ -1,5 +1,3 @@
-package rdz.antlion;
-
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

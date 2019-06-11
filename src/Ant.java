@@ -1,8 +1,6 @@
-package rdz.antlion;
-
 public class Ant {
     // --Fields-- //
-    int col, row;
+    private int col, row;
 
     // --Constructor(s)-- //
     // Starting position
