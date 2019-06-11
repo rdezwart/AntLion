@@ -1,5 +1,3 @@
-package rdz.antlion;
-
 public class Ant {
     // --Fields-- //
     private int col, row;
