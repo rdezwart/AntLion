@@ -3,13 +3,13 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/Tile.java" line="43" />
     <bookmark url="file://$PROJECT_DIR$/src/Tile.java" line="53" />
-    <bookmark url="file://$PROJECT_DIR$/src/GamePanel.java" line="265" />
+    <bookmark url="file://$PROJECT_DIR$/src/GamePanel.java" line="251" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5f183ea-fbfd-4d7f-aa66-5361640e9a6f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/Maven/target/" />
@@ -40,18 +40,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="198" column="61" lean-forward="true" selection-start-line="198" selection-start-column="61" selection-end-line="198" selection-end-column="61" />
+            <state relative-caret-position="334">
+              <caret line="330" column="45" lean-forward="true" selection-start-line="330" selection-start-column="45" selection-end-line="330" selection-end-column="45" />
               <folding>
                 <element signature="class#MyMouseAdapter#0;class#GamePanel#0" />
-                <element signature="class#MyKeyAdapter#0;class#GamePanel#0" />
+                <element signature="method#keyPressed#0;class#MyKeyAdapter#0;class#GamePanel#0" />
                 <element signature="e#2087#2266#1" />
                 <element signature="method#paintComponent#0;class#GamePanel#0" />
+                <element signature="method#moveAnt#0;class#GamePanel#0" />
+                <element signature="method#checkMoves#0;class#GamePanel#0" />
                 <element signature="method#checkAnt#0;class#GamePanel#0" />
                 <element signature="method#checkVision#0;class#GamePanel#0" />
                 <element signature="method#reduceVision#0;class#GamePanel#0" />
                 <element signature="method#initImages#0;class#GamePanel#0" />
                 <element signature="method#setImages#0;class#GamePanel#0" />
+                <element signature="method#dirToNum#0;class#GamePanel#0" />
+                <element signature="method#oppDir#0;class#GamePanel#0" />
               </folding>
             </state>
           </provider>
@@ -60,10 +64,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            <state relative-caret-position="221">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#218#245#0" expanded="true" />
+                <element signature="e#1495#1496#0" expanded="true" />
+                <element signature="e#1580#1581#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/Util.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+              <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
               <folding>
                 <element signature="e#262#263#0" expanded="true" />
                 <element signature="e#328#329#0" expanded="true" />
@@ -142,9 +148,9 @@
       <list>
         <option value="$PROJECT_DIR$/Maven/pom.xml" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/Tile.java" />
         <option value="$PROJECT_DIR$/src/Util.java" />
         <option value="$PROJECT_DIR$/src/MainApp.java" />
-        <option value="$PROJECT_DIR$/src/Tile.java" />
         <option value="$PROJECT_DIR$/src/GamePanel.java" />
       </list>
     </option>
@@ -295,38 +301,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-          <folding>
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="method#setCol#0;class#Ant#0" />
-            <element signature="method#setRow#0;class#Ant#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="e#218#245#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1354">
@@ -355,20 +329,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+          <folding>
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#218#245#0" expanded="true" />
+            <element signature="e#1495#1496#0" expanded="true" />
+            <element signature="e#1580#1581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="method#setCol#0;class#Ant#0" />
+            <element signature="method#setRow#0;class#Ant#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="198" column="61" lean-forward="true" selection-start-line="198" selection-start-column="61" selection-end-line="198" selection-end-column="61" />
+        <state relative-caret-position="334">
+          <caret line="330" column="45" lean-forward="true" selection-start-line="330" selection-start-column="45" selection-end-line="330" selection-end-column="45" />
           <folding>
             <element signature="class#MyMouseAdapter#0;class#GamePanel#0" />
-            <element signature="class#MyKeyAdapter#0;class#GamePanel#0" />
+            <element signature="method#keyPressed#0;class#MyKeyAdapter#0;class#GamePanel#0" />
             <element signature="e#2087#2266#1" />
             <element signature="method#paintComponent#0;class#GamePanel#0" />
+            <element signature="method#moveAnt#0;class#GamePanel#0" />
+            <element signature="method#checkMoves#0;class#GamePanel#0" />
             <element signature="method#checkAnt#0;class#GamePanel#0" />
             <element signature="method#checkVision#0;class#GamePanel#0" />
             <element signature="method#reduceVision#0;class#GamePanel#0" />
             <element signature="method#initImages#0;class#GamePanel#0" />
             <element signature="method#setImages#0;class#GamePanel#0" />
+            <element signature="method#dirToNum#0;class#GamePanel#0" />
+            <element signature="method#oppDir#0;class#GamePanel#0" />
           </folding>
         </state>
       </provider>

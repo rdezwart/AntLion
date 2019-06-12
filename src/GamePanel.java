@@ -61,6 +61,10 @@ public class GamePanel extends JPanel implements ActionListener {
             if (e.getKeyCode() == e.VK_ESCAPE) {
                 app.quit();
             }
+
+            if (e.getKeyCode() == e.VK_R) {
+                loadLevel(curLevel);
+            }
         }
     }
 
@@ -69,6 +73,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     private Tile[][] tileGrid;
     private ArrayList<Tile> tileList;
+    private int curLevel;
 
     private Timer timer;
 
@@ -92,30 +97,11 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
-        for (int c = 4; c < 9; c++) {
-            tileGrid[c][5].setType("wall");
-            tileGrid[c][7].setType("vision");
-            tileGrid[c][9].setType("one");
-            tileGrid[c][11].setType("land");
-            tileGrid[c][13].setType("jump");
-        }
-
-        tileGrid[8][6].setType("jump");
-        tileGrid[9][7].setType("jump");
-        tileGrid[11][13].setType("jump");
-        tileGrid[12][13].setType("wall");
-        tileGrid[13][13].setType("wall");
-        tileGrid[12][14].setType("jump");
-        tileGrid[12][12].setType("jump");
-        tileGrid[8][8].setType("vision");
-        tileGrid[15][15].setType("jump");
-        tileGrid[9][9].setType("jump");
+        curLevel = 0;
+        loadLevel(curLevel);
 
         initImages();
         setImages();
-
-        // rdz.antlion.Ant
-        a = new Ant();
 
         // Event listeners
         addMouseListener(new MyMouseAdapter());
@@ -326,6 +312,32 @@ public class GamePanel extends JPanel implements ActionListener {
 
             default:
                 return "invalid";
+        }
+    }
+
+    private void loadLevel(int l) {
+        if (l == 0) {
+            for (int c = 4; c < 9; c++) {
+                tileGrid[c][5].setType("wall");
+                tileGrid[c][7].setType("vision");
+                tileGrid[c][9].setType("one");
+                tileGrid[c][11].setType("land");
+                tileGrid[c][13].setType("jump");
+            }
+
+            tileGrid[8][6].setType("jump");
+            tileGrid[9][7].setType("jump");
+            tileGrid[11][13].setType("jump");
+            tileGrid[12][13].setType("wall");
+            tileGrid[13][13].setType("wall");
+            tileGrid[12][14].setType("jump");
+            tileGrid[12][12].setType("jump");
+            tileGrid[8][8].setType("vision");
+            tileGrid[15][15].setType("jump");
+            tileGrid[9][9].setType("jump");
+
+            a = new Ant(0, 8);
+            MainApp.visionRange = MainApp.realRange;
         }
     }
 }
