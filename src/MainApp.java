@@ -23,6 +23,7 @@ public class MainApp extends JFrame {
     public static final int realRange = 3;
     public static final int visionBoost = 11;
     public static final int jumpDist = 2;
+    public static final int landDist = 2;
     public static int visionRange = realRange;
 
 

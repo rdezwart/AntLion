@@ -197,6 +197,9 @@ public class GamePanel extends JPanel implements ActionListener {
             MainApp.visionRange = MainApp.visionBoost;
         } else if (curTile.getType() == "one") {
             tileGrid[a.getCol()][a.getRow()].setType("used");
+        } else if (curTile.getType() == "land") {
+            tileGrid[a.getCol()][a.getRow()].setType("slid");
+            moveAnt(oppDir(dir), MainApp.landDist);
         }
 
         reduceVision();
@@ -304,6 +307,25 @@ public class GamePanel extends JPanel implements ActionListener {
 
             default:
                 return -1;
+        }
+    }
+
+    private String oppDir(String dir) {
+        switch (dir) {
+            case "up":
+                return "down";
+
+            case "right":
+                return "left";
+
+            case "down":
+                return "up";
+
+            case "left":
+                return "right";
+
+            default:
+                return "invalid";
         }
     }
 }

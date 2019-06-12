@@ -16,6 +16,7 @@ public class Tile {
     private Color oneColor = new Color(218, 238, 33);
     private Color usedColor = new Color(176, 195, 32);
     private Color landColor = new Color(202, 57, 57);
+    private Color slidColor = new Color(159, 50, 50);
     private Color visionColor = new Color(71, 76, 169);
 
     // --Constructor(s)-- //
@@ -132,6 +133,9 @@ public class Tile {
 
             case "land":
                 return landColor;
+
+            case "slid":
+                return slidColor;
 
             case "vision":
                 return visionColor;
