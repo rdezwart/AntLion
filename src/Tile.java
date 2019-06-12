@@ -8,8 +8,14 @@ public class Tile {
     private int col, row;
     private boolean hasAnt, visible, inRange;
     private String type;
-    private Color floorColor = new Color(0xC69C6D);
+
     Image img;
+
+    private Color floorColor = new Color(0xC69C6D);
+    private Color jumpColor = new Color(0, 189, 10);
+    private Color oneColor = new Color(218, 238, 33);
+    private Color landColor = new Color(202, 57, 57);
+    private Color visionColor = new Color(71, 76, 169);
 
     // --Constructor(s)-- //
     // Row, column, type
@@ -44,8 +50,7 @@ public class Tile {
         g.translate(col * (int) (MainApp.tileSize.x + MainApp.gridGap.x), row * (int) (MainApp.tileSize.y + MainApp.gridGap.y));
 
         if (visible || Util.REVEAL) {
-            // Floor by default
-            g.setColor(floorColor);
+            g.setColor(getTileColor());
             g.fillRect(0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y);
 
             // If something else, override
@@ -107,5 +112,24 @@ public class Tile {
 
     public void setImg(Image i) {
         img = i;
+    }
+
+    public Color getTileColor() {
+        switch (type) {
+            case "jump":
+                return jumpColor;
+
+            case "one":
+                return oneColor;
+
+            case "land":
+                return landColor;
+
+            case "vision":
+                return visionColor;
+
+            default:
+                return floorColor;
+        }
     }
 }

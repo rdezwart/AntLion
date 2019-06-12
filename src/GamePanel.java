@@ -93,16 +93,17 @@ public class GamePanel extends JPanel implements ActionListener {
 
         for (int c = 4; c < 9; c++) {
             tileGrid[c][5].setType("wall");
+            tileGrid[c][7].setType("vision");
+            tileGrid[c][9].setType("one");
+            tileGrid[c][11].setType("land");
+            tileGrid[c][13].setType("jump");
         }
 
         initImages();
         setImages();
-
-
-
+        
         // rdz.antlion.Ant
         a = new Ant();
-
 
         // Event listeners
         addMouseListener(new MyMouseAdapter());
