@@ -1,7 +1,6 @@
 import com.sun.tools.javac.Main;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Tile {
@@ -9,6 +8,8 @@ public class Tile {
     private int col, row;
     private boolean hasAnt, visible, inRange;
     private String type;
+    private Color floorColor = new Color(0xC69C6D);
+    Image img;
 
     // --Constructor(s)-- //
     // Row, column, type
@@ -24,7 +25,7 @@ public class Tile {
 
     // Row, column
     public Tile(int c, int r) {
-        this(c, r, "empty");
+        this(c, r, "floor");
     }
 
     // --Runtime-- //
@@ -42,19 +43,13 @@ public class Tile {
 
         g.translate(col * (int) (MainApp.tileSize.x + MainApp.gridGap.x), row * (int) (MainApp.tileSize.y + MainApp.gridGap.y));
 
-        if (visible) {
-            // Inside
-            if (type == "wall") {
-                g.setColor(Color.GRAY);
-            } else {
-                g.setColor(Color.WHITE);
-            }
-
+        if (visible || Util.REVEAL) {
+            // Floor by default
+            g.setColor(floorColor);
             g.fillRect(0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y);
 
-            // Outline
-            g.setColor(Color.BLACK);
-            g.drawRect(0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y);
+            // If something else, override
+            g.drawImage(img, 0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y, null);
 
             if (hasAnt) {
                 g.setColor(Color.RED);
@@ -64,8 +59,9 @@ public class Tile {
         } else {
             g.setColor(Color.BLACK);
 
-            g.fillRect((int) -MainApp.gridGap.x, (int) -MainApp.gridGap.y, (int) MainApp.tileSize.x + (int) MainApp.gridGap.x, (int) MainApp.tileSize.y + (int) MainApp.gridGap.y);
+            g.fillRect(0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y);
         }
+
 
         g.setTransform(af);
     }
@@ -107,5 +103,9 @@ public class Tile {
 
     public void setInRange(boolean r) {
         inRange = r;
+    }
+
+    public void setImg(Image i) {
+        img = i;
     }
 }

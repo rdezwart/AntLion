@@ -1,7 +1,6 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import processing.core.*;
+
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -9,8 +8,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -71,6 +73,8 @@ public class GamePanel extends JPanel implements ActionListener {
 
     Ant a;
 
+    private Image[] wallImages;
+
     // --Constructor(s)-- //
     public GamePanel(MainApp ma) {
         // App
@@ -91,8 +95,14 @@ public class GamePanel extends JPanel implements ActionListener {
             tileGrid[c][5].setType("wall");
         }
 
+        initImages();
+        setImages();
+
+
+
         // rdz.antlion.Ant
         a = new Ant();
+
 
         // Event listeners
         addMouseListener(new MyMouseAdapter());
@@ -211,4 +221,26 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     // --Helpers-- //
+    private void initImages() {
+        // Walls
+        wallImages = new Image[1];
+        try {
+            for (int i = 0; i < wallImages.length; i++) {
+                wallImages[i] = ImageIO.read(new File("img\\wall" + i + ".png"));
+            }
+        } catch (IOException e) {
+            System.out.println("ERROR: Wall");
+            if (Util.DEBUG) {
+                System.out.println(e.toString());
+            }
+        }
+    }
+
+    private void setImages() {
+        for (Tile t : tileList) {
+            if (t.getType() == "wall") {
+                t.setImg(wallImages[0]);
+            }
+        }
+    }
 }

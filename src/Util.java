@@ -3,6 +3,7 @@ import java.awt.Color;
 public class Util {
     // --Fields-- //
     public final static boolean DEBUG = false;
+    public final static boolean REVEAL = true;
 
     // --Constructor(s)-- //
     // Default
