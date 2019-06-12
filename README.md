@@ -2,7 +2,9 @@
 ## For the general public:
 This repository was created for collaboration during the [Foundations of Game Design](https://www.sfu.ca/outlines.html?2019/summer/iat/312/d100) course at [Simon Fraser University](https://www.sfu.ca/). This will be used to synchronize any changes made through the course of this project.
 
-All the code has been written by me, except for the external [Processing](https://processing.org/) library.
+All the code has been written by me, except for the external [Processing](https://processing.org/) library. The necessary files for that have been included already. 
+
+However, you do need the [Java 12 SDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html), the one used for developing this. 
 
 ## For my group:
 Here's my code for our redesign! I'll be updating this as we go, and so we can track any changes made throughout the project. 
