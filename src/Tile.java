@@ -6,7 +6,7 @@ import java.awt.geom.AffineTransform;
 public class Tile {
     // --Field-- //
     private int col, row;
-    private boolean hasAnt, visible, inRange;
+    private boolean hasAnt, visible, inRange, used;
     private String type;
 
     Image img;
@@ -14,6 +14,7 @@ public class Tile {
     private Color floorColor = new Color(0xC69C6D);
     private Color jumpColor = new Color(0, 189, 10);
     private Color oneColor = new Color(218, 238, 33);
+    private Color usedColor = new Color(176, 195, 32);
     private Color landColor = new Color(202, 57, 57);
     private Color visionColor = new Color(71, 76, 169);
 
@@ -27,6 +28,7 @@ public class Tile {
         hasAnt = false;
         visible = true;
         inRange = false;
+        used = false;
     }
 
     // Row, column

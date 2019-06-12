@@ -11,7 +11,7 @@ import processing.core.PVector;
 @SuppressWarnings("serial")
 public class MainApp extends JFrame {
     // --Static Fields-- //
-    public static PVector gridSize = new PVector(32, 16);
+    public static PVector gridSize = new PVector(33, 17);
     public static PVector tileSize = new PVector(50, 50);
     public static PVector gridGap = new PVector(0, 0);
     public static Dimension panelSize = new Dimension(
@@ -20,7 +20,11 @@ public class MainApp extends JFrame {
     public static Dimension windowSize = new Dimension((int) (panelSize.getWidth() + 100),
             (int) (panelSize.getHeight() + 100));
 
-    public static int visionRange = 3;
+    public static final int realRange = 3;
+    public static final int visionBoost = 11;
+    public static final int jumpDist = 2;
+    public static int visionRange = realRange;
+
 
     // --Constructor-- //
     public MainApp(String title) {

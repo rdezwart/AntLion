@@ -1,3 +1,4 @@
+import com.sun.tools.javac.Main;
 import processing.core.*;
 
 import java.awt.*;
@@ -41,19 +42,19 @@ public class GamePanel extends JPanel implements ActionListener {
         public void keyPressed(KeyEvent e) {
             // Up
             if (e.getKeyCode() == e.VK_W || e.getKeyCode() == e.VK_UP) {
-                moveAnt("up");
+                moveAnt("up", 1);
             }
             // Right
             if (e.getKeyCode() == e.VK_D || e.getKeyCode() == e.VK_RIGHT) {
-                moveAnt("right");
+                moveAnt("right", 1);
             }
             // Down
             if (e.getKeyCode() == e.VK_S || e.getKeyCode() == e.VK_DOWN) {
-                moveAnt("down");
+                moveAnt("down", 1);
             }
             // Left
             if (e.getKeyCode() == e.VK_A || e.getKeyCode() == e.VK_LEFT) {
-                moveAnt("left");
+                moveAnt("left", 1);
             }
 
             // Esc
@@ -99,6 +100,16 @@ public class GamePanel extends JPanel implements ActionListener {
             tileGrid[c][13].setType("jump");
         }
 
+        tileGrid[8][6].setType("jump");
+        tileGrid[9][7].setType("jump");
+        tileGrid[11][13].setType("jump");
+        tileGrid[12][13].setType("wall");
+        tileGrid[13][13].setType("wall");
+        tileGrid[12][14].setType("jump");
+        tileGrid[12][12].setType("jump");
+        tileGrid[8][8].setType("vision");
+        tileGrid[15][15].setType("jump");
+
         initImages();
         setImages();
 
@@ -142,32 +153,32 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     // --Methods-- //
-    private void moveAnt(String dir) {
+    private void moveAnt(String dir, int dist) {
         switch (dir) {
             case "up": {
-                if (checkMoves()[0]) {
-                    a.setRow(a.getRow() - 1);
+                if (checkMoves(dist)[0]) {
+                    a.setRow(a.getRow() - dist);
                 }
                 break;
             }
 
             case "right": {
-                if (checkMoves()[1]) {
-                    a.setCol(a.getCol() + 1);
+                if (checkMoves(dist)[1]) {
+                    a.setCol(a.getCol() + dist);
                 }
                 break;
             }
 
             case "down": {
-                if (checkMoves()[2]) {
-                    a.setRow(a.getRow() + 1);
+                if (checkMoves(dist)[2]) {
+                    a.setRow(a.getRow() + dist);
                 }
                 break;
             }
 
             case "left": {
-                if (checkMoves()[3]) {
-                    a.setCol(a.getCol() - 1);
+                if (checkMoves(dist)[3]) {
+                    a.setCol(a.getCol() - dist);
                 }
                 break;
             }
@@ -179,30 +190,47 @@ public class GamePanel extends JPanel implements ActionListener {
 
         // checking for special tiles
         Tile curTile = tileGrid[a.getCol()][a.getRow()];
-        if (curTile.getType() == "jump") {
-            moveAnt(dir);
+        if (curTile.getType() == "jump" && checkMoves(MainApp.jumpDist)[dirToNum(dir)]) {
+            moveAnt(dir, MainApp.jumpDist);
+        } else if (curTile.getType() == "vision") {
+            MainApp.visionRange = MainApp.visionBoost;
+        } else {
         }
+
+        reduceVision();
     }
 
-    private boolean[] checkMoves() {
+    private boolean[] checkMoves(int dist) {
         // up, right, down, left
         boolean[] canMove = {false, false, false, false};
 
         // Up
-        if (a.getRow() != 0 && tileGrid[a.getCol()][a.getRow() - 1].getType() != "wall") {
-            canMove[0] = true;
+        if (a.getRow() != dist - 1) {
+            String tUp = tileGrid[a.getCol()][a.getRow() - dist].getType();
+            if (tUp != "wall" && tUp != "used") {
+                canMove[0] = true;
+            }
         }
         // Right
-        if (a.getCol() != MainApp.gridSize.x - 1 && tileGrid[a.getCol() + 1][a.getRow()].getType() != "wall") {
-            canMove[1] = true;
+        if (a.getCol() != MainApp.gridSize.x - dist) {
+            String tRight = tileGrid[a.getCol() + dist][a.getRow()].getType();
+            if (tRight != "wall" && tRight != "used") {
+                canMove[1] = true;
+            }
         }
         // Down
-        if (a.getRow() != MainApp.gridSize.y - 1 && tileGrid[a.getCol()][a.getRow() + 1].getType() != "wall") {
-            canMove[2] = true;
+        if (a.getRow() != MainApp.gridSize.y - dist) {
+            String tDown = tileGrid[a.getCol()][a.getRow() + dist].getType();
+            if (tDown != "wall" && tDown != "used") {
+                canMove[2] = true;
+            }
         }
         // Left
-        if (a.getCol() != 0 && tileGrid[a.getCol() - 1][a.getRow()].getType() != "wall") {
-            canMove[3] = true;
+        if (a.getCol() != dist - 1) {
+            String tLeft = tileGrid[a.getCol() - dist][a.getRow()].getType();
+            if (tLeft != "wall" && tLeft != "used") {
+                canMove[3] = true;
+            }
         }
 
         return canMove;
@@ -228,6 +256,12 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    private void reduceVision() {
+        if (MainApp.visionRange != MainApp.realRange) {
+            MainApp.visionRange--;
+        }
+    }
+
     // --Helpers-- //
     private void initImages() {
         // Walls
@@ -249,6 +283,25 @@ public class GamePanel extends JPanel implements ActionListener {
             if (t.getType() == "wall") {
                 t.setImg(wallImages[0]);
             }
+        }
+    }
+
+    private int dirToNum(String dir) {
+        switch (dir) {
+            case "up":
+                return 0;
+
+            case "right":
+                return 1;
+
+            case "down":
+                return 2;
+
+            case "left":
+                return 3;
+
+            default:
+                return -1;
         }
     }
 }
