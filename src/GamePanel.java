@@ -108,6 +108,7 @@ public class GamePanel extends JPanel implements ActionListener {
     @Override // Calculations
     public void actionPerformed(ActionEvent arg0) {
         checkAnt();
+        checkVision();
 
         repaint();
     }
@@ -189,12 +190,22 @@ public class GamePanel extends JPanel implements ActionListener {
         return canMove;
     }
 
-    public void checkAnt() {
+    private void checkAnt() {
         for (Tile t : tileList) {
             if (t.getRow() == a.getRow() && t.getCol() == a.getCol()) {
                 t.setAnt(true);
             } else {
                 t.setAnt(false);
+            }
+        }
+    }
+
+    private void checkVision() {
+        for (Tile t : tileList) {
+            if (Math.abs(t.getCol() - a.getCol()) < MainApp.visionRange - 1 && Math.abs(t.getRow() - a.getRow()) < MainApp.visionRange - 1) {
+                t.setInRange(true);
+            } else {
+                t.setInRange(false);
             }
         }
     }

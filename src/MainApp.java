@@ -13,12 +13,14 @@ public class MainApp extends JFrame {
     // --Static Fields-- //
     public static PVector gridSize = new PVector(32, 16);
     public static PVector tileSize = new PVector(30, 30);
-    public static PVector gridGap = new PVector(5, 5);
+    public static PVector gridGap = new PVector(0, 0);
     public static Dimension panelSize = new Dimension(
             (int) ((tileSize.x * gridSize.x) + (gridGap.x * (gridSize.x + 1))),
             (int) ((tileSize.y * gridSize.y) + (gridGap.y * (gridSize.y + 1))));
     public static Dimension windowSize = new Dimension((int) (panelSize.getWidth() + 100),
             (int) (panelSize.getHeight() + 100));
+
+    public static int visionRange = 3;
 
     // --Constructor-- //
     public MainApp(String title) {
