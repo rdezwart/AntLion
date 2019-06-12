@@ -7,6 +7,8 @@ public class Ant {
     public Ant(int c, int r) {
         col = c;
         row = r;
+
+        MainApp.visionRange = MainApp.realRange;
     }
 
     // Default

@@ -97,7 +97,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
-        curLevel = 0;
+        curLevel = 1;
         loadLevel(curLevel);
 
         initImages();
@@ -337,7 +337,182 @@ public class GamePanel extends JPanel implements ActionListener {
             tileGrid[9][9].setType("jump");
 
             a = new Ant(0, 8);
-            MainApp.visionRange = MainApp.realRange;
+        }
+        if (l == 1) {
+            for (Tile t : tileList) {
+                t.setType("wall");
+            }
+
+            tileGrid[0][9].setType("floor");
+
+            tileGrid[1][8].setType("floor");
+            tileGrid[1][9].setType("vision");
+            tileGrid[1][8].setType("floor");
+
+            tileGrid[2][8].setType("floor");
+            tileGrid[2][9].setType("jump");
+            tileGrid[2][11].setType("floor");
+            tileGrid[2][12].setType("floor");
+
+            tileGrid[3][8].setType("floor");
+            tileGrid[3][12].setType("floor");
+            tileGrid[3][13].setType("floor");
+
+            tileGrid[4][8].setType("floor");
+            tileGrid[4][9].setType("floor");
+            tileGrid[4][13].setType("floor");
+
+            tileGrid[5][13].setType("floor");
+
+            tileGrid[6][13].setType("vision");
+
+            tileGrid[7][13].setType("floor");
+
+            tileGrid[8][13].setType("jump");
+
+            tileGrid[10][1].setType("floor");
+            tileGrid[10][3].setType("jump");
+            tileGrid[10][4].setType("floor");
+            tileGrid[10][5].setType("jump");
+            tileGrid[10][7].setType("vision");
+            tileGrid[10][8].setType("jump");
+            tileGrid[10][10].setType("floor");
+            tileGrid[10][11].setType("floor");
+            tileGrid[10][13].setType("floor");
+            tileGrid[10][14].setType("floor");
+            tileGrid[10][15].setType("vision");
+
+            tileGrid[11][1].setType("jump");
+            tileGrid[11][3].setType("floor");
+            tileGrid[11][4].setType("floor");
+            tileGrid[11][5].setType("floor");
+            tileGrid[11][10].setType("jump");
+            tileGrid[11][11].setType("floor");
+            tileGrid[11][13].setType("jump");
+            tileGrid[11][14].setType("floor");
+            tileGrid[11][15].setType("floor");
+
+            tileGrid[13][1].setType("floor");
+            tileGrid[13][4].setType("jump");
+            tileGrid[13][5].setType("floor");
+            tileGrid[13][7].setType("jump");
+            tileGrid[13][8].setType("floor");
+            tileGrid[13][10].setType("floor");
+            tileGrid[13][11].setType("floor");
+            tileGrid[13][13].setType("floor");
+            tileGrid[13][14].setType("jump");
+
+            tileGrid[14][1].setType("jump");
+            tileGrid[14][4].setType("floor");
+            tileGrid[14][5].setType("floor");
+            tileGrid[14][7].setType("floor");
+            tileGrid[14][8].setType("floor");
+            tileGrid[14][10].setType("jump");
+            tileGrid[14][11].setType("floor");
+            tileGrid[14][13].setType("floor");
+            tileGrid[14][14].setType("floor");
+
+            tileGrid[16][1].setType("vision");
+            tileGrid[16][2].setType("vision");
+            tileGrid[16][3].setType("one");
+            tileGrid[16][4].setType("floor");
+            tileGrid[16][5].setType("floor");
+            tileGrid[16][6].setType("floor");
+            tileGrid[16][10].setType("floor");
+            tileGrid[16][11].setType("jump");
+
+            tileGrid[17][6].setType("one");
+            tileGrid[17][10].setType("floor");
+            tileGrid[17][11].setType("vision");
+
+            tileGrid[18][6].setType("vision");
+
+            tileGrid[19][2].setType("floor");
+            tileGrid[19][3].setType("floor");
+            tileGrid[19][4].setType("floor");
+            tileGrid[19][5].setType("floor");
+            tileGrid[19][6].setType("vision");
+            tileGrid[19][7].setType("floor");
+            tileGrid[19][8].setType("floor");
+            tileGrid[19][9].setType("floor");
+            tileGrid[19][10].setType("floor");
+
+            tileGrid[20][2].setType("floor");
+            tileGrid[20][4].setType("one");
+            tileGrid[20][6].setType("one");
+            tileGrid[20][8].setType("one");
+
+            tileGrid[21][2].setType("vision");
+            tileGrid[21][3].setType("floor");
+            tileGrid[21][4].setType("floor");
+            tileGrid[21][6].setType("floor");
+            tileGrid[21][8].setType("floor");
+            tileGrid[21][9].setType("floor");
+            tileGrid[21][10].setType("floor");
+
+            tileGrid[22][2].setType("floor");
+            tileGrid[22][6].setType("floor");
+            tileGrid[22][10].setType("floor");
+
+            tileGrid[23][2].setType("floor");
+            tileGrid[23][3].setType("floor");
+            tileGrid[23][4].setType("floor");
+            tileGrid[23][5].setType("floor");
+            tileGrid[23][6].setType("floor");
+            tileGrid[23][8].setType("floor");
+            tileGrid[23][9].setType("floor");
+            tileGrid[23][10].setType("floor");
+
+            tileGrid[24][8].setType("floor");
+
+            tileGrid[25][6].setType("vision");
+            tileGrid[25][7].setType("floor");
+            tileGrid[25][8].setType("floor");
+            tileGrid[25][9].setType("floor");
+            tileGrid[25][10].setType("vision");
+
+            tileGrid[26][6].setType("vision");
+            tileGrid[26][10].setType("jump");
+
+            tileGrid[27][6].setType("one");
+
+            tileGrid[28][2].setType("vision");
+            tileGrid[28][3].setType("floor");
+            tileGrid[28][4].setType("floor");
+            tileGrid[28][5].setType("floor");
+            tileGrid[28][6].setType("floor");
+            tileGrid[28][7].setType("floor");
+            tileGrid[28][8].setType("floor");
+            tileGrid[28][9].setType("floor");
+            tileGrid[28][10].setType("floor");
+            tileGrid[28][11].setType("floor");
+            tileGrid[28][12].setType("vision");
+
+            tileGrid[29][3].setType("floor");
+            tileGrid[29][5].setType("floor");
+            tileGrid[29][7].setType("floor");
+            tileGrid[29][9].setType("floor");
+            tileGrid[29][11].setType("floor");
+
+            tileGrid[30][3].setType("land");
+            tileGrid[30][5].setType("land");
+            tileGrid[30][7].setType("land");
+            tileGrid[30][9].setType("floor");
+            tileGrid[30][11].setType("land");
+
+            tileGrid[31][3].setType("floor");
+            tileGrid[31][4].setType("floor");
+            tileGrid[31][5].setType("floor");
+            tileGrid[31][6].setType("floor");
+            tileGrid[31][7].setType("floor");
+            tileGrid[31][8].setType("floor");
+            tileGrid[31][9].setType("floor");
+            tileGrid[31][10].setType("floor");
+            tileGrid[31][11].setType("floor");
+
+            tileGrid[32][7].setType("floor");
+
+            a = new Ant(0, 9);
         }
     }
 }
