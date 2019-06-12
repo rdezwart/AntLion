@@ -109,6 +109,7 @@ public class GamePanel extends JPanel implements ActionListener {
         tileGrid[12][12].setType("jump");
         tileGrid[8][8].setType("vision");
         tileGrid[15][15].setType("jump");
+        tileGrid[9][9].setType("jump");
 
         initImages();
         setImages();
@@ -194,7 +195,8 @@ public class GamePanel extends JPanel implements ActionListener {
             moveAnt(dir, MainApp.jumpDist);
         } else if (curTile.getType() == "vision") {
             MainApp.visionRange = MainApp.visionBoost;
-        } else {
+        } else if (curTile.getType() == "one") {
+            tileGrid[a.getCol()][a.getRow()].setType("used");
         }
 
         reduceVision();
