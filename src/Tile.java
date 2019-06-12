@@ -86,6 +86,10 @@ public class Tile {
         hasAnt = a;
     }
 
+    public boolean isHasAnt() {
+        return hasAnt;
+    }
+
     public String getType() {
         return type;
     }

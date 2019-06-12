@@ -101,7 +101,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         initImages();
         setImages();
-        
+
         // rdz.antlion.Ant
         a = new Ant();
 
@@ -120,6 +120,7 @@ public class GamePanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent arg0) {
         checkAnt();
         checkVision();
+
 
         repaint();
     }
@@ -175,6 +176,12 @@ public class GamePanel extends JPanel implements ActionListener {
                 System.out.println("Not a valid direction.");
             }
         }
+
+        // checking for special tiles
+        Tile curTile = tileGrid[a.getCol()][a.getRow()];
+        if (curTile.getType() == "jump") {
+            moveAnt(dir);
+        }
     }
 
     private boolean[] checkMoves() {
@@ -186,11 +193,11 @@ public class GamePanel extends JPanel implements ActionListener {
             canMove[0] = true;
         }
         // Right
-        if (a.getCol() != MainApp.gridSize.x-1 && tileGrid[a.getCol() + 1][a.getRow()].getType() != "wall") {
+        if (a.getCol() != MainApp.gridSize.x - 1 && tileGrid[a.getCol() + 1][a.getRow()].getType() != "wall") {
             canMove[1] = true;
         }
         // Down
-        if (a.getRow() != MainApp.gridSize.y-1 && tileGrid[a.getCol()][a.getRow() + 1].getType() != "wall") {
+        if (a.getRow() != MainApp.gridSize.y - 1 && tileGrid[a.getCol()][a.getRow() + 1].getType() != "wall") {
             canMove[2] = true;
         }
         // Left
