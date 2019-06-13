@@ -78,15 +78,13 @@ public class GamePanel extends JPanel implements ActionListener {
     private Tile[][] tileGrid;
     private ArrayList<Tile> tileList;
     private int curLevel;
-
     private String screen;
-
-    private Timer timer;
-
-    Ant a;
 
     private Image[] wallImages;
     private Image titleImage, end1Image;
+
+    private Timer timer;
+    private Ant a;
 
     // --Constructor(s)-- //
     public GamePanel(MainApp ma) {
@@ -104,10 +102,12 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
+        // Screen prep
         screen = "menu";
         curLevel = 1;
         loadLevel(curLevel);
 
+        // Image prep
         initImages();
         setImages();
 
@@ -124,9 +124,9 @@ public class GamePanel extends JPanel implements ActionListener {
     // --Runtime-- //
     @Override
     public void actionPerformed(ActionEvent arg0) {
+        // Screen logic for calculations
         switch (screen) {
             case "menu": {
-
                 break;
             }
 
@@ -151,11 +151,12 @@ public class GamePanel extends JPanel implements ActionListener {
 
         AffineTransform af = g2.getTransform();
 
+        // Screen logic for graphics
         switch (screen) {
             case "menu": {
-                setBackground(Color.BLACK);
-
                 g2.translate(MainApp.panelSize.width / 2, MainApp.panelSize.height / 2);
+
+                setBackground(Color.BLACK);
                 if (titleImage != null) {
                     g2.drawImage(titleImage, -titleImage.getWidth(null) / 2, -titleImage.getHeight(null) / 2, null);
                 }
@@ -163,25 +164,23 @@ public class GamePanel extends JPanel implements ActionListener {
             }
 
             case "game": {
-                setBackground(Color.WHITE);
-
                 g2.translate(-1 + MainApp.gridGap.x, -1 + MainApp.gridGap.y);
+
+                setBackground(Color.BLACK);
                 for (Tile t : tileList) {
                     t.tick();
                     t.draw(g2);
                 }
-
                 break;
             }
 
             case "end1": {
-                setBackground(Color.BLACK);
-
                 g2.translate(MainApp.panelSize.width / 2, MainApp.panelSize.height / 2);
+
+                setBackground(Color.BLACK);
                 if (end1Image != null) {
                     g2.drawImage(end1Image, -end1Image.getWidth(null) / 2, -end1Image.getHeight(null) / 2, null);
                 }
-
                 break;
             }
         }
@@ -191,8 +190,10 @@ public class GamePanel extends JPanel implements ActionListener {
 
     // --Methods-- //
     private void moveAnt(String dir, int dist) {
+        // Check for valid move
         boolean moved = false;
 
+        // Move logic
         switch (dir) {
             case "up": {
                 if (checkMoves(dist)[0]) {
@@ -239,7 +240,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
-        // checking for special tiles
+        // Check for special tiles
         Tile curTile = tileGrid[a.getCol()][a.getRow()];
         if (curTile.getType() == "jump" && checkMoves(MainApp.jumpDist)[dirToNum(dir)]) {
             moveAnt(dir, MainApp.jumpDist);
@@ -259,11 +260,13 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
+        // If valid move was made, reduce vision
         if (moved) {
             reduceVision();
         }
     }
 
+    // Check if a target tile is valid
     private boolean[] checkMoves(int dist) {
         // up, right, down, left
         boolean[] canMove = {false, false, false, false};
@@ -300,6 +303,7 @@ public class GamePanel extends JPanel implements ActionListener {
         return canMove;
     }
 
+    // Update status of tiles
     private void checkAnt() {
         for (Tile t : tileList) {
             if (t.getRow() == a.getRow() && t.getCol() == a.getCol()) {
@@ -310,6 +314,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // Update vision range
     private void checkVision() {
         for (Tile t : tileList) {
             if (Math.abs(t.getCol() - a.getCol()) < MainApp.visionRange - 1 && Math.abs(t.getRow() - a.getRow()) < MainApp.visionRange - 1) {
@@ -320,6 +325,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // Reduce vision range if boosted
     private void reduceVision() {
         if (MainApp.visionRange != MainApp.realRange) {
             MainApp.visionRange--;
@@ -327,6 +333,7 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     // --Helpers-- //
+    // Initialize images
     private void initImages() {
         // Walls
         wallImages = new Image[1];
@@ -362,6 +369,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // Assign images
     private void setImages() {
         for (Tile t : tileList) {
             if (t.getType() == "wall") {
@@ -370,6 +378,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // Convert direction string to index for checkMoves
     private int dirToNum(String dir) {
         switch (dir) {
             case "up":
@@ -389,6 +398,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // Return opposite direction
     private String oppDir(String dir) {
         switch (dir) {
             case "up":
@@ -408,7 +418,9 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // Level loading
     private void loadLevel(int l) {
+        // Level 0 - Test
         if (l == 0) {
             for (int c = 4; c < 9; c++) {
                 tileGrid[c][5].setType("wall");
@@ -431,6 +443,8 @@ public class GamePanel extends JPanel implements ActionListener {
 
             a = new Ant(0, 8);
         }
+
+        // Level 1 - Easy
         if (l == 1) {
             for (Tile t : tileList) {
                 t.setType("wall");
@@ -608,6 +622,7 @@ public class GamePanel extends JPanel implements ActionListener {
             a = new Ant(0, 9);
         }
 
+        // Prepare ant
         moveAnt("stay", 0);
     }
 }

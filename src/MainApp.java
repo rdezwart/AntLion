@@ -15,8 +15,8 @@ public class MainApp extends JFrame {
     public static PVector tileSize = new PVector(40, 40);
     public static PVector gridGap = new PVector(0, 0);
     public static Dimension panelSize = new Dimension(
-            (int) ((tileSize.x * gridSize.x) + (gridGap.x * (gridSize.x + 1))),
-            (int) ((tileSize.y * gridSize.y) + (gridGap.y * (gridSize.y + 1))));
+            (int) ((tileSize.x * gridSize.x) + (gridGap.x * (gridSize.x + 1) - 1)),
+            (int) ((tileSize.y * gridSize.y) + (gridGap.y * (gridSize.y + 1) - 1)));
     public static Dimension windowSize = new Dimension((int) (panelSize.getWidth() + 100),
             (int) (panelSize.getHeight() + 100));
 
@@ -25,7 +25,6 @@ public class MainApp extends JFrame {
     public static final int jumpDist = 2;
     public static final int landDist = 2;
     public static int visionRange = realRange;
-
 
     // --Constructor-- //
     public MainApp(String title) {
