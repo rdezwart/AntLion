@@ -1,4 +1,4 @@
-# AntLion
+# AntLion Redesign
 ## For the general public:
 This repository was created for collaboration during the [Foundations of Game Design](https://www.sfu.ca/outlines.html?2019/summer/iat/312/d100) course at [Simon Fraser University](https://www.sfu.ca/). This will be used to synchronize any changes made through the course of this project.
 

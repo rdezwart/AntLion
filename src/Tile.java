@@ -18,6 +18,8 @@ public class Tile {
     private Color landColor = new Color(202, 57, 57);
     private Color slidColor = new Color(159, 50, 50);
     private Color visionColor = new Color(71, 76, 169);
+    private Color endColor = new Color(255, 158, 20);
+    private Color startColor = new Color(175, 72, 255);
 
     // --Constructor(s)-- //
     // Row, column, type
@@ -139,6 +141,12 @@ public class Tile {
 
             case "vision":
                 return visionColor;
+
+            case "end":
+                return endColor;
+
+            case "start":
+                return startColor;
 
             default:
                 return floorColor;

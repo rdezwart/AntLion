@@ -14,8 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+import javax.swing.*;
 
 public class GamePanel extends JPanel implements ActionListener {
 
@@ -62,8 +61,23 @@ public class GamePanel extends JPanel implements ActionListener {
                 app.quit();
             }
 
+            // R
             if (e.getKeyCode() == e.VK_R) {
                 loadLevel(curLevel);
+            }
+
+            // Space
+            if (e.getKeyCode() == e.VK_SPACE) {
+                if (screen == "menu") {
+                    screen = "game";
+                    loadLevel(1);
+                    System.out.println("SCREEN: Game");
+                }
+
+                if (screen == "end1") {
+                    screen = "menu";
+                    System.out.println("SCREEN: Menu");
+                }
             }
         }
     }
@@ -75,11 +89,14 @@ public class GamePanel extends JPanel implements ActionListener {
     private ArrayList<Tile> tileList;
     private int curLevel;
 
+    private String screen;
+
     private Timer timer;
 
     Ant a;
 
     private Image[] wallImages;
+    private Image titleImage, end1Image;
 
     // --Constructor(s)-- //
     public GamePanel(MainApp ma) {
@@ -97,6 +114,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
+        screen = "menu";
         curLevel = 1;
         loadLevel(curLevel);
 
@@ -114,29 +132,68 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     // --Runtime-- //
-    @Override // Calculations
+    @Override
     public void actionPerformed(ActionEvent arg0) {
-        checkAnt();
-        checkVision();
+        switch (screen) {
+            case "menu": {
 
+                break;
+            }
+
+            case "game": {
+                checkAnt();
+                checkVision();
+                break;
+            }
+
+            case "end1": {
+                break;
+            }
+        }
 
         repaint();
     }
 
-    // Graphics
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        setBackground(Color.WHITE);
-
         AffineTransform af = g2.getTransform();
-        g2.translate(-1 + MainApp.gridGap.x, -1 + MainApp.gridGap.y);
-        for (Tile t : tileList) {
-            t.tick();
-            t.draw(g2);
+
+        switch (screen) {
+            case "menu": {
+                setBackground(Color.BLACK);
+
+                g2.translate(MainApp.panelSize.width / 2, MainApp.panelSize.height / 2);
+                g2.drawImage(titleImage, -titleImage.getWidth(null) / 2, -titleImage.getHeight(null) / 2, null);
+
+                break;
+            }
+
+            case "game": {
+                setBackground(Color.WHITE);
+
+                g2.translate(-1 + MainApp.gridGap.x, -1 + MainApp.gridGap.y);
+                for (Tile t : tileList) {
+                    t.tick();
+                    t.draw(g2);
+                }
+
+                break;
+            }
+
+            case "end1": {
+                setBackground(Color.BLACK);
+
+                g2.translate(MainApp.panelSize.width / 2, MainApp.panelSize.height / 2);
+                g2.drawImage(end1Image, -end1Image.getWidth(null)/2, -end1Image.getHeight(null)/2, null);
+
+                break;
+            }
         }
+
+        g2.setTransform(af);
     }
 
     // --Methods-- //
@@ -186,6 +243,11 @@ public class GamePanel extends JPanel implements ActionListener {
         } else if (curTile.getType() == "land") {
             tileGrid[a.getCol()][a.getRow()].setType("slid");
             moveAnt(oppDir(dir), MainApp.landDist);
+        } else if (curTile.getType() == "end") {
+            if (curLevel == 1) {
+                screen = "end1";
+                System.out.println("SCREEN: End1");
+            }
         }
 
         reduceVision();
@@ -267,6 +329,26 @@ public class GamePanel extends JPanel implements ActionListener {
                 System.out.println(e.toString());
             }
         }
+
+        // Title
+        try {
+            titleImage = ImageIO.read(new File("img\\title.png"));
+        } catch (IOException e) {
+            System.out.println("ERROR: Title");
+            if (Util.DEBUG) {
+                System.out.println(e.toString());
+            }
+        }
+
+        // End1
+        try {
+            end1Image = ImageIO.read(new File("img\\end1.png"));
+        } catch (IOException e) {
+            System.out.println("ERROR: End1");
+            if (Util.DEBUG) {
+                System.out.println(e.toString());
+            }
+        }
     }
 
     private void setImages() {
@@ -343,7 +425,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 t.setType("wall");
             }
 
-            tileGrid[0][9].setType("floor");
+            tileGrid[0][9].setType("start");
 
             tileGrid[1][8].setType("floor");
             tileGrid[1][9].setType("vision");
@@ -510,7 +592,7 @@ public class GamePanel extends JPanel implements ActionListener {
             tileGrid[31][10].setType("floor");
             tileGrid[31][11].setType("floor");
 
-            tileGrid[32][7].setType("floor");
+            tileGrid[32][7].setType("end");
 
             a = new Ant(0, 9);
         }
