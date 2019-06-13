@@ -11,9 +11,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/GamePanel.java" line="351" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5f183ea-fbfd-4d7f-aa66-5361640e9a6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="f5f183ea-fbfd-4d7f-aa66-5361640e9a6f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/Maven/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="276" lean-forward="true" selection-start-line="276" selection-end-line="276" />
+            <state relative-caret-position="-984">
+              <caret line="267" column="51" lean-forward="true" selection-start-line="267" selection-start-column="51" selection-end-line="267" selection-end-column="51" />
               <folding>
                 <element signature="class#MyMouseAdapter#0;class#GamePanel#0" />
                 <element signature="method#MyKeyAdapter#0;class#MyKeyAdapter#0;class#GamePanel#0" />
@@ -364,8 +362,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="276" lean-forward="true" selection-start-line="276" selection-end-line="276" />
+        <state relative-caret-position="-984">
+          <caret line="267" column="51" lean-forward="true" selection-start-line="267" selection-start-column="51" selection-end-line="267" selection-end-column="51" />
           <folding>
             <element signature="class#MyMouseAdapter#0;class#GamePanel#0" />
             <element signature="method#MyKeyAdapter#0;class#MyKeyAdapter#0;class#GamePanel#0" />
