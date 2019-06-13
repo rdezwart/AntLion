@@ -2,8 +2,8 @@ import java.awt.Color;
 
 public class Util {
     // --Fields-- //
-    public final static boolean DEBUG = true;
-    public final static boolean REVEAL = false;
+    public static boolean DEBUG = true;
+    public static boolean REVEAL = false;
 
     // --Constructor(s)-- //
     // Default

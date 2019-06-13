@@ -69,6 +69,11 @@ public class GamePanel extends JPanel implements ActionListener {
                     System.out.println("SCREEN: Menu");
                 }
             }
+
+            // Reveal
+            if (e.getKeyCode() == e.VK_9) {
+                Util.REVEAL = !Util.REVEAL;
+            }
         }
     }
 
