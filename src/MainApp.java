@@ -12,7 +12,7 @@ import processing.core.PVector;
 public class MainApp extends JFrame {
     // --Static Fields-- //
     public static PVector gridSize = new PVector(33, 17);
-    public static PVector tileSize = new PVector(40, 40);
+    public static PVector tileSize = new PVector(30, 30);
     public static PVector gridGap = new PVector(0, 0);
     public static Dimension panelSize = new Dimension(
             (int) ((tileSize.x * gridSize.x) + (gridGap.x * (gridSize.x + 1) - 1)),
@@ -28,6 +28,7 @@ public class MainApp extends JFrame {
     public static int antRotation = 90;
 
     public static int tilesMoved = 0;
+    public static int deathIndex = 0;
 
     // --Constructor-- //
     public MainApp(String title) {

@@ -4,7 +4,7 @@ import java.awt.geom.AffineTransform;
 public class Tile {
     // --Field-- //
     private int col, row;
-    private boolean hasAnt, visible, inRange;
+    private boolean hasAnt, visible, inRange, death;
     private String type;
 
     Image img;
@@ -18,6 +18,7 @@ public class Tile {
     private Color visionColor = new Color(71, 76, 169);
     private Color endColor = new Color(255, 158, 20);
     private Color startColor = new Color(175, 72, 255);
+    private Color deathColor = new Color(255, 35, 0);
 
     // --Constructor(s)-- //
     // Row, column, type
@@ -64,15 +65,16 @@ public class Tile {
                 g.translate((int) MainApp.tileSize.x / 2, (int) MainApp.tileSize.y / 2);
                 g.rotate(Math.toRadians(MainApp.antRotation));
                 g.drawImage(img, (int) -MainApp.tileSize.x / 2, (int) -MainApp.tileSize.y / 2, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y, null);
-
-//                g.setColor(Color.RED);
-//                g.translate((int) MainApp.tileSize.x / 2, (int) MainApp.tileSize.y / 2);
-//                g.fillRect((int) -MainApp.tileSize.x / 8, (int) -MainApp.tileSize.y / 8, (int) MainApp.tileSize.x / 4, (int) MainApp.tileSize.y / 4);
             }
         } else {
             g.setColor(Color.BLACK);
 
             g.fillRect(0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y);
+
+            if (death) {
+                g.setColor(deathColor);
+                g.fillRect(0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y);
+            }
         }
 
 
@@ -151,6 +153,9 @@ public class Tile {
 
             case "start":
                 return startColor;
+
+            case "death":
+                return deathColor;
 
             default:
                 return floorColor;

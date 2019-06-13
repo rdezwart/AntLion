@@ -273,12 +273,21 @@ public class GamePanel extends JPanel implements ActionListener {
                 screen = "end1";
                 System.out.println("SCREEN: End1");
             }
+        } else if (curTile.getType() == "death") {
+            loadLevel(curLevel);
         }
 
         // If valid move was made, reduce vision
         if (moved) {
             reduceVision();
             MainApp.tilesMoved++;
+        }
+
+        if (MainApp.tilesMoved % 4 == 0 && MainApp.tilesMoved != 0) {
+            for (int c = 0; c < tileGrid[0].length; c++) {
+                tileGrid[MainApp.deathIndex][c].setType("death");
+            }
+            MainApp.deathIndex++;
         }
     }
 
@@ -704,6 +713,7 @@ public class GamePanel extends JPanel implements ActionListener {
         curLevel = l;
         setImages();
         MainApp.tilesMoved = 0;
+        MainApp.deathIndex = 0;
         moveAnt("stay", 0);
     }
 }
