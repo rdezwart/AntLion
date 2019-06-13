@@ -27,6 +27,8 @@ public class MainApp extends JFrame {
     public static int visionRange = realRange;
     public static int antRotation = 90;
 
+    public static int tilesMoved = 0;
+
     // --Constructor-- //
     public MainApp(String title) {
         super(title);

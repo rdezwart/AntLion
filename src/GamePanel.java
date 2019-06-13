@@ -109,11 +109,10 @@ public class GamePanel extends JPanel implements ActionListener {
 
         // Screen prep
         screen = "menu";
+        initImages();
         curLevel = 1;
         loadLevel(curLevel);
 
-        // Image prep
-        initImages();
         setImages();
 
         // Event listeners
@@ -176,6 +175,10 @@ public class GamePanel extends JPanel implements ActionListener {
                     t.tick();
                     t.draw(g2);
                 }
+
+                g2.setColor(Color.WHITE);
+                g2.scale(2, 2);
+                g2.drawString("Tiles Moved: " + MainApp.tilesMoved, 5, 15);
                 break;
             }
 
@@ -272,6 +275,7 @@ public class GamePanel extends JPanel implements ActionListener {
         // If valid move was made, reduce vision
         if (moved) {
             reduceVision();
+            MainApp.tilesMoved++;
         }
     }
 
@@ -478,21 +482,26 @@ public class GamePanel extends JPanel implements ActionListener {
                 t.setType("wall");
             }
 
+            tileGrid[0][0].setType("floor");
             tileGrid[0][9].setType("start");
 
+            tileGrid[1][0].setType("floor");
             tileGrid[1][8].setType("floor");
             tileGrid[1][9].setType("floor");
             tileGrid[1][8].setType("floor");
 
+            tileGrid[2][0].setType("floor");
             tileGrid[2][8].setType("floor");
             tileGrid[2][9].setType("jump");
             tileGrid[2][11].setType("floor");
             tileGrid[2][12].setType("floor");
 
+            tileGrid[3][0].setType("floor");
             tileGrid[3][8].setType("floor");
             tileGrid[3][12].setType("floor");
             tileGrid[3][13].setType("floor");
 
+            tileGrid[4][0].setType("floor");
             tileGrid[4][8].setType("floor");
             tileGrid[4][9].setType("floor");
             tileGrid[4][13].setType("floor");
@@ -652,10 +661,43 @@ public class GamePanel extends JPanel implements ActionListener {
 
         // Level 2 - Medium
         if (l == 2) {
-            tileGrid[0][16].setType("start");
+            for (Tile t : tileList) {
+                t.setType("wall");
+            }
+
+            tileGrid[0][7].setType("start");
+
+            tileGrid[1][7].setType("floor");
+
+            tileGrid[2][7].setType("one");
+
+            tileGrid[3][7].setType("one");
+
+            tileGrid[4][7].setType("vision");
+
+            tileGrid[5][7].setType("floor");
+
+            tileGrid[6][1].setType("floor");
+            tileGrid[6][2].setType("floor");
+            tileGrid[6][3].setType("floor");
+            tileGrid[6][4].setType("floor");
+            tileGrid[6][5].setType("floor");
+            tileGrid[6][6].setType("floor");
+            tileGrid[6][7].setType("floor");
+            tileGrid[6][8].setType("floor");
+            tileGrid[6][9].setType("floor");
+            tileGrid[6][10].setType("floor");
+            tileGrid[6][11].setType("floor");
+            tileGrid[6][12].setType("floor");
+            tileGrid[6][13].setType("floor");
+
+            a = new Ant(0, 7);
         }
 
         // Prepare ant
+        curLevel = l;
+        setImages();
+        MainApp.tilesMoved = 0;
         moveAnt("stay", 0);
     }
 }
