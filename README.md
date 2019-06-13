@@ -10,6 +10,8 @@ However, you do need the [Java 12 SDK](https://www.oracle.com/technetwork/java/j
 ## Play it!
 There is now an executable `.jar` file in [this](out/artifacts/AntLion_jar) folder! It contains everything you need to play the game from anywhere, so long as you have Java installed. :smile:
 
+This is currently a **prototype**, and is not finished yet. 
+
 
 ## For my group:
 Here's my code for our redesign! I'll be updating this as we go, and so we can track any changes made throughout the project. 
