@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AntLion:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/Tile.java" line="45" />
     <bookmark url="file://$PROJECT_DIR$/src/Tile.java" line="55" />
@@ -7,9 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5f183ea-fbfd-4d7f-aa66-5361640e9a6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/AntLion_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AntLion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AntLion.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/Maven/target/" />
@@ -40,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="192" column="13" lean-forward="true" selection-start-line="192" selection-start-column="13" selection-end-line="192" selection-end-column="13" />
+            <state relative-caret-position="338">
+              <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
               <folding>
                 <element signature="class#MyMouseAdapter#0;class#GamePanel#0" />
                 <element signature="class#MyKeyAdapter#0;class#GamePanel#0" />
@@ -54,7 +62,6 @@
                 <element signature="method#checkAnt#0;class#GamePanel#0" />
                 <element signature="method#checkVision#0;class#GamePanel#0" />
                 <element signature="method#reduceVision#0;class#GamePanel#0" />
-                <element signature="method#initImages#0;class#GamePanel#0" />
                 <element signature="method#setImages#0;class#GamePanel#0" />
                 <element signature="method#dirToNum#0;class#GamePanel#0" />
                 <element signature="method#oppDir#0;class#GamePanel#0" />
@@ -68,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="-193">
+              <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
               <folding>
                 <element signature="e#218#245#0" expanded="true" />
                 <element signature="e#1495#1496#0" expanded="true" />
@@ -112,8 +119,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+            <state relative-caret-position="68">
+              <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
               <folding>
                 <element signature="e#262#263#0" expanded="true" />
                 <element signature="e#328#329#0" expanded="true" />
@@ -153,11 +160,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Maven/pom.xml" />
-        <option value="$PROJECT_DIR$/src/MainApp.java" />
         <option value="$PROJECT_DIR$/src/Ant.java" />
-        <option value="$PROJECT_DIR$/src/Util.java" />
         <option value="$PROJECT_DIR$/src/Tile.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/MainApp.java" />
+        <option value="$PROJECT_DIR$/src/Util.java" />
         <option value="$PROJECT_DIR$/src/GamePanel.java" />
       </list>
     </option>
@@ -184,11 +191,6 @@
             <path>
               <item name="AntLion" type="b2602c69:ProjectViewProjectNode" />
               <item name="AntLion" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AntLion" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AntLion" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -208,14 +210,16 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ext/core.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Libraries\OneDrive\SFU\2019\Summer\IAT 312\AntLion" />
+      <recent name="F:\Libraries\OneDrive\SFU\2019\Summer\IAT 312\AntLion\src" />
       <recent name="F:\Libraries\OneDrive\SFU\2019\Summer\IAT 312\AntLion\Maven" />
     </key>
   </component>
@@ -291,18 +295,6 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/GamePanel.java</url>
-          <line>163</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AntLion.iml">
       <provider selected="true" editor-type-id="text-editor">
@@ -315,14 +307,33 @@
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util.java">
+    <entry file="file://$PROJECT_DIR$/src/Ant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+        <state relative-caret-position="170">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
           <folding>
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
+            <element signature="method#setCol#0;class#Ant#0" />
+            <element signature="method#setRow#0;class#Ant#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/end1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/title.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/wall0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="18" selection-start-column="18" selection-end-column="18" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -354,31 +365,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="18" selection-start-column="18" selection-end-column="18" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-          <folding>
-            <element signature="method#setCol#0;class#Ant#0" />
-            <element signature="method#setRow#0;class#Ant#0" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="-193">
+          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
           <folding>
             <element signature="e#218#245#0" expanded="true" />
             <element signature="e#1495#1496#0" expanded="true" />
@@ -387,10 +380,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <folding>
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="192" column="13" lean-forward="true" selection-start-line="192" selection-start-column="13" selection-end-line="192" selection-end-column="13" />
+        <state relative-caret-position="338">
+          <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
           <folding>
             <element signature="class#MyMouseAdapter#0;class#GamePanel#0" />
             <element signature="class#MyKeyAdapter#0;class#GamePanel#0" />
@@ -403,7 +407,6 @@
             <element signature="method#checkAnt#0;class#GamePanel#0" />
             <element signature="method#checkVision#0;class#GamePanel#0" />
             <element signature="method#reduceVision#0;class#GamePanel#0" />
-            <element signature="method#initImages#0;class#GamePanel#0" />
             <element signature="method#setImages#0;class#GamePanel#0" />
             <element signature="method#dirToNum#0;class#GamePanel#0" />
             <element signature="method#oppDir#0;class#GamePanel#0" />
@@ -418,11 +421,18 @@
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
-          <artifact-editor />
+          <artifact-editor>
+            <show-content>
+              <type id="library" />
+              <type id="artifact" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>AntLion:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

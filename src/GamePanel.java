@@ -1,6 +1,3 @@
-import com.sun.tools.javac.Main;
-import processing.core.*;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -166,8 +163,9 @@ public class GamePanel extends JPanel implements ActionListener {
                 setBackground(Color.BLACK);
 
                 g2.translate(MainApp.panelSize.width / 2, MainApp.panelSize.height / 2);
-                g2.drawImage(titleImage, -titleImage.getWidth(null) / 2, -titleImage.getHeight(null) / 2, null);
-
+                if (titleImage != null) {
+                    g2.drawImage(titleImage, -titleImage.getWidth(null) / 2, -titleImage.getHeight(null) / 2, null);
+                }
                 break;
             }
 
@@ -187,7 +185,9 @@ public class GamePanel extends JPanel implements ActionListener {
                 setBackground(Color.BLACK);
 
                 g2.translate(MainApp.panelSize.width / 2, MainApp.panelSize.height / 2);
-                g2.drawImage(end1Image, -end1Image.getWidth(null)/2, -end1Image.getHeight(null)/2, null);
+                if (end1Image != null) {
+                    g2.drawImage(end1Image, -end1Image.getWidth(null) / 2, -end1Image.getHeight(null) / 2, null);
+                }
 
                 break;
             }
@@ -321,7 +321,7 @@ public class GamePanel extends JPanel implements ActionListener {
         wallImages = new Image[1];
         try {
             for (int i = 0; i < wallImages.length; i++) {
-                wallImages[i] = ImageIO.read(new File("img\\wall" + i + ".png"));
+                wallImages[i] = ImageIO.read(GamePanel.class.getResourceAsStream("wall" + i + ".png"));
             }
         } catch (IOException e) {
             System.out.println("ERROR: Wall");
@@ -332,7 +332,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         // Title
         try {
-            titleImage = ImageIO.read(new File("img\\title.png"));
+            titleImage = ImageIO.read(GamePanel.class.getResourceAsStream("title.png"));
         } catch (IOException e) {
             System.out.println("ERROR: Title");
             if (Util.DEBUG) {
@@ -340,9 +340,10 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
+        //            end1Image = ImageIO.read(new File("end1.png"));
         // End1
         try {
-            end1Image = ImageIO.read(new File("img\\end1.png"));
+            end1Image = ImageIO.read(GamePanel.class.getResourceAsStream("end1.png"));
         } catch (IOException e) {
             System.out.println("ERROR: End1");
             if (Util.DEBUG) {
