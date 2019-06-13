@@ -15,6 +15,6 @@ Most of the files you can ignore, but if you drill down to the [src](src) folder
 
 The core Processing library is also included in this repo, so there should be no real need to relink it. Let me know if otherwise!
 
-#Play it!
+# Play it!
 
 There is now an executable `.jar` file in [this](out/artifacts/AntLion_jar) folder! It contains everything you need to play the game from anywhere, so long as you have Java installed. :smile:
