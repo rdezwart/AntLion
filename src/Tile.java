@@ -1,5 +1,3 @@
-import com.sun.tools.javac.Main;
-
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 
@@ -58,12 +56,18 @@ public class Tile {
             g.fillRect(0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y);
 
             // If something else, override
-            g.drawImage(img, 0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y, null);
+            if (!hasAnt) {
+                g.drawImage(img, 0, 0, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y, null);
+            }
 
             if (hasAnt) {
-                g.setColor(Color.RED);
                 g.translate((int) MainApp.tileSize.x / 2, (int) MainApp.tileSize.y / 2);
-                g.fillRect((int) -MainApp.tileSize.x / 8, (int) -MainApp.tileSize.y / 8, (int) MainApp.tileSize.x / 4, (int) MainApp.tileSize.y / 4);
+                g.rotate(Math.toRadians(MainApp.antRotation));
+                g.drawImage(img, (int) -MainApp.tileSize.x / 2, (int) -MainApp.tileSize.y / 2, (int) MainApp.tileSize.x, (int) MainApp.tileSize.y, null);
+
+//                g.setColor(Color.RED);
+//                g.translate((int) MainApp.tileSize.x / 2, (int) MainApp.tileSize.y / 2);
+//                g.fillRect((int) -MainApp.tileSize.x / 8, (int) -MainApp.tileSize.y / 8, (int) MainApp.tileSize.x / 4, (int) MainApp.tileSize.y / 4);
             }
         } else {
             g.setColor(Color.BLACK);

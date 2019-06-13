@@ -86,7 +86,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private String screen;
 
     private Image[] wallImages;
-    private Image titleImage, end1Image;
+    private Image antImage, titleImage, end1Image;
 
     private Timer timer;
     private Ant a;
@@ -201,6 +201,7 @@ public class GamePanel extends JPanel implements ActionListener {
         // Move logic
         switch (dir) {
             case "up": {
+                MainApp.antRotation = 0;
                 if (checkMoves(dist)[0]) {
                     a.setRow(a.getRow() - dist);
                     moved = true;
@@ -209,6 +210,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
 
             case "right": {
+                MainApp.antRotation = 90;
                 if (checkMoves(dist)[1]) {
                     a.setCol(a.getCol() + dist);
                     moved = true;
@@ -217,6 +219,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
 
             case "down": {
+                MainApp.antRotation = 180;
                 if (checkMoves(dist)[2]) {
                     a.setRow(a.getRow() + dist);
                     moved = true;
@@ -225,6 +228,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
 
             case "left": {
+                MainApp.antRotation = 270;
                 if (checkMoves(dist)[3]) {
                     a.setCol(a.getCol() - dist);
                     moved = true;
@@ -313,8 +317,13 @@ public class GamePanel extends JPanel implements ActionListener {
         for (Tile t : tileList) {
             if (t.getRow() == a.getRow() && t.getCol() == a.getCol()) {
                 t.setAnt(true);
+                t.setImg(antImage);
             } else {
                 t.setAnt(false);
+
+                if (t.getType() != "wall") {
+                    t.setImg(null);
+                }
             }
         }
     }
@@ -353,6 +362,16 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
+        // Ant
+        try {
+            antImage = ImageIO.read(GamePanel.class.getResourceAsStream("ant.png"));
+        } catch (IOException e) {
+            System.out.println("ERROR: Ant");
+            if (Util.DEBUG) {
+                System.out.println(e.toString());
+            }
+        }
+
         // Title
         try {
             titleImage = ImageIO.read(GamePanel.class.getResourceAsStream("title.png"));
@@ -379,6 +398,10 @@ public class GamePanel extends JPanel implements ActionListener {
         for (Tile t : tileList) {
             if (t.getType() == "wall") {
                 t.setImg(wallImages[0]);
+            }
+
+            if (t.isHasAnt()) {
+                t.setImg(antImage);
             }
         }
     }
@@ -625,6 +648,11 @@ public class GamePanel extends JPanel implements ActionListener {
             tileGrid[32][7].setType("end");
 
             a = new Ant(0, 9);
+        }
+
+        // Level 2 - Medium
+        if (l == 2) {
+            tileGrid[0][16].setType("start");
         }
 
         // Prepare ant
