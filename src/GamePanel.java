@@ -1,17 +1,10 @@
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.geom.AffineTransform;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.AffineTransform;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class GamePanel extends JPanel implements ActionListener {
 
@@ -198,10 +191,13 @@ public class GamePanel extends JPanel implements ActionListener {
 
     // --Methods-- //
     private void moveAnt(String dir, int dist) {
+        boolean moved = false;
+
         switch (dir) {
             case "up": {
                 if (checkMoves(dist)[0]) {
                     a.setRow(a.getRow() - dist);
+                    moved = true;
                 }
                 break;
             }
@@ -209,6 +205,7 @@ public class GamePanel extends JPanel implements ActionListener {
             case "right": {
                 if (checkMoves(dist)[1]) {
                     a.setCol(a.getCol() + dist);
+                    moved = true;
                 }
                 break;
             }
@@ -216,6 +213,7 @@ public class GamePanel extends JPanel implements ActionListener {
             case "down": {
                 if (checkMoves(dist)[2]) {
                     a.setRow(a.getRow() + dist);
+                    moved = true;
                 }
                 break;
             }
@@ -223,12 +221,21 @@ public class GamePanel extends JPanel implements ActionListener {
             case "left": {
                 if (checkMoves(dist)[3]) {
                     a.setCol(a.getCol() - dist);
+                    moved = true;
                 }
+                break;
+            }
+
+            case "stay": {
+                // do nothing
+                moved = false;
                 break;
             }
 
             default: {
                 System.out.println("Not a valid direction.");
+                moved = false;
+                break;
             }
         }
 
@@ -243,6 +250,8 @@ public class GamePanel extends JPanel implements ActionListener {
         } else if (curTile.getType() == "land") {
             tileGrid[a.getCol()][a.getRow()].setType("slid");
             moveAnt(oppDir(dir), MainApp.landDist);
+        } else if (curTile.getType() == "start") {
+            MainApp.visionRange = MainApp.visionBoost;
         } else if (curTile.getType() == "end") {
             if (curLevel == 1) {
                 screen = "end1";
@@ -250,7 +259,9 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
-        reduceVision();
+        if (moved) {
+            reduceVision();
+        }
     }
 
     private boolean[] checkMoves(int dist) {
@@ -428,7 +439,7 @@ public class GamePanel extends JPanel implements ActionListener {
             tileGrid[0][9].setType("start");
 
             tileGrid[1][8].setType("floor");
-            tileGrid[1][9].setType("vision");
+            tileGrid[1][9].setType("floor");
             tileGrid[1][8].setType("floor");
 
             tileGrid[2][8].setType("floor");
@@ -596,5 +607,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
             a = new Ant(0, 9);
         }
+
+        moveAnt("stay", 0);
     }
 }
