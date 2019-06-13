@@ -8,12 +8,11 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/Tile.java" line="43" />
     <bookmark url="file://$PROJECT_DIR$/src/Tile.java" line="53" />
-    <bookmark url="file://$PROJECT_DIR$/src/GamePanel.java" line="348" />
+    <bookmark url="file://$PROJECT_DIR$/src/GamePanel.java" line="351" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5f183ea-fbfd-4d7f-aa66-5361640e9a6f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/Maven/target/" />
@@ -44,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="699" column="31" selection-start-line="699" selection-start-column="31" selection-end-line="699" selection-end-column="31" />
+            <state relative-caret-position="329">
+              <caret line="276" lean-forward="true" selection-start-line="276" selection-end-line="276" />
               <folding>
                 <element signature="class#MyMouseAdapter#0;class#GamePanel#0" />
                 <element signature="method#MyKeyAdapter#0;class#MyKeyAdapter#0;class#GamePanel#0" />
@@ -365,8 +364,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="699" column="31" selection-start-line="699" selection-start-column="31" selection-end-line="699" selection-end-column="31" />
+        <state relative-caret-position="329">
+          <caret line="276" lean-forward="true" selection-start-line="276" selection-end-line="276" />
           <folding>
             <element signature="class#MyMouseAdapter#0;class#GamePanel#0" />
             <element signature="method#MyKeyAdapter#0;class#MyKeyAdapter#0;class#GamePanel#0" />

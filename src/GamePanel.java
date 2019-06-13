@@ -256,6 +256,9 @@ public class GamePanel extends JPanel implements ActionListener {
         Tile curTile = tileGrid[a.getCol()][a.getRow()];
         if (curTile.getType() == "jump" && checkMoves(MainApp.jumpDist)[dirToNum(dir)]) {
             moveAnt(dir, MainApp.jumpDist);
+            if (moved) {
+                MainApp.tilesMoved--;
+            }
         } else if (curTile.getType() == "vision") {
             MainApp.visionRange = MainApp.visionBoost;
         } else if (curTile.getType() == "one") {
@@ -452,6 +455,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     // Level loading
     private void loadLevel(int l) {
+
         // Level 0 - Test
         if (l == 0) {
             for (int c = 4; c < 9; c++) {
@@ -482,7 +486,6 @@ public class GamePanel extends JPanel implements ActionListener {
                 t.setType("wall");
             }
 
-            tileGrid[0][0].setType("floor");
             tileGrid[0][9].setType("start");
 
             tileGrid[1][0].setType("floor");
@@ -490,18 +493,15 @@ public class GamePanel extends JPanel implements ActionListener {
             tileGrid[1][9].setType("floor");
             tileGrid[1][8].setType("floor");
 
-            tileGrid[2][0].setType("floor");
             tileGrid[2][8].setType("floor");
             tileGrid[2][9].setType("jump");
             tileGrid[2][11].setType("floor");
             tileGrid[2][12].setType("floor");
 
-            tileGrid[3][0].setType("floor");
             tileGrid[3][8].setType("floor");
             tileGrid[3][12].setType("floor");
             tileGrid[3][13].setType("floor");
 
-            tileGrid[4][0].setType("floor");
             tileGrid[4][8].setType("floor");
             tileGrid[4][9].setType("floor");
             tileGrid[4][13].setType("floor");
@@ -693,6 +693,12 @@ public class GamePanel extends JPanel implements ActionListener {
 
             a = new Ant(0, 7);
         }
+
+        // Space for tilesMoved
+        tileGrid[0][0].setType("floor");
+        tileGrid[2][0].setType("floor");
+        tileGrid[3][0].setType("floor");
+        tileGrid[4][0].setType("floor");
 
         // Prepare ant
         curLevel = l;
