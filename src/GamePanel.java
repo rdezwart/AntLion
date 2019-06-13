@@ -340,7 +340,6 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
 
-        //            end1Image = ImageIO.read(new File("end1.png"));
         // End1
         try {
             end1Image = ImageIO.read(GamePanel.class.getResourceAsStream("end1.png"));

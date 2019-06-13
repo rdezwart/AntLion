@@ -12,3 +12,6 @@ Here's my code for our redesign! I'll be updating this as we go, and so we can t
 Most of the files you can ignore, but if you drill down to the [src](src) folder you can find the Java code. I also switched to a new IDE, [IntelliJ](https://www.jetbrains.com/idea/) (instead of [Eclipse](https://www.eclipse.org/)). I've been told it's better overall, and I'm enjoying it so far. :smile:
 
 The core Processing library is also included in this repo, so there should be no real need to relink it. Let me know if otherwise!
+
+#Play it!
+There is now an executable `.jar` file in the [artifacts](out/artifacts) folder! It contains everything you need to play the game from anywhere, so long as you have Java installed. :smile:
